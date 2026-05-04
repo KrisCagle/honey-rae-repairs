@@ -38,9 +38,6 @@ List<Product> products = new List<Product>()
     }
 };
 
-
-string greeting = "Welcome to Thrown For A Loop!";
-Console.WriteLine(greeting);
 Console.WriteLine("Products:");
 for (int i = 0; i < products.Count; i++)
 {
@@ -56,4 +53,4 @@ while (response > products.Count || response < 1)
 }
 
 Product chosenProduct = products[response - 1];
-Console.WriteLine($"You chose: {chosenProduct.Name}, which costs {chosenProduct.Price} dollars and is {(chosenProduct.Sold ? "" : "not ")}sold.");
+Console.WriteLine($"You chose: {chosenProduct.Name}, which costs {chosenProduct.Price} dollars, discounted price is {chosenProduct.DiscountedPrice}, and is {(chosenProduct.Sold ? "" : "not ")}sold.");
