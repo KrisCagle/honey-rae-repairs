@@ -51,7 +51,7 @@ Generated from: dev-docs/PRD.md
   **User Stories:**
   - As a player, I want to choose my difficulty before the game starts so I can control how challenging it is.
 
-- [ ] **Step 8: Cheater mode**
+- [x] **Step 8: Cheater mode**
   Add a fourth difficulty option, Cheater, that gives unlimited guesses. Represents unlimited as `int.MaxValue` so the loop logic does not need a special case.
 
   **User Stories:**

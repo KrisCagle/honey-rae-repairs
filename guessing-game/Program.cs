@@ -1,5 +1,5 @@
 Console.WriteLine("Welcome to Guessing Game!");
-Console.WriteLine("Choose difficulty: 1 - Easy (8 guesses), 2 - Medium (6 guesses), 3 - Hard (4 guesses)");
+Console.WriteLine("Choose difficulty: 1 - Easy (8 guesses), 2 - Medium (6 guesses), 3 - Hard (4 guesses) - 4 Cheater (unlimited guesses)");
 string difficultyChoice = Console.ReadLine();
 int maxGuesses;
 switch (difficultyChoice)
@@ -13,9 +13,13 @@ switch (difficultyChoice)
     case "3":
         maxGuesses = 4;
         break;
+    case "4":
+        maxGuesses = int.MaxValue;
+        break;
     default:
         maxGuesses = 4;
         break;
+    
 }
 int secretNumber = new Random().Next(1, 101);
 bool won = false;
