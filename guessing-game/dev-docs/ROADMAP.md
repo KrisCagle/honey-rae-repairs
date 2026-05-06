@@ -45,7 +45,7 @@ Generated from: dev-docs/PRD.md
   **User Stories:**
   - As a player, I want feedback after each wrong guess so I can narrow down the answer.
 
-- [ ] **Step 7: Difficulty selection**
+- [x] **Step 7: Difficulty selection**
   Before gameplay begins, prompt the player to choose Easy (8 guesses), Medium (6), or Hard (4). Sets `maxGuesses` based on the choice. Introduces the Difficulty Selection component from the architecture.
 
   **User Stories:**
