@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "config": {
+    "understandingChecks": true
+  },
+  "docs": [
+    {
+      "path": "dev-docs/PRD.md",
+      "scope": "general",
+      "purpose": "Product requirements, tech stack decisions, and project scope for the Guessing Game assignment",
+      "tags": ["prd", "requirements", "scope", "stack"]
+    },
+    {
+      "path": "dev-docs/ARCHITECTURE.md",
+      "scope": "general",
+      "purpose": "System design, component breakdown, data model, and project conventions for the Guessing Game",
+      "tags": ["architecture", "system-design", "conventions", "data-model"]
+    },
+    {
+      "path": "dev-docs/ROADMAP.md",
+      "scope": "general",
+      "purpose": "Ordered implementation steps with checkboxes and user stories",
+      "tags": ["roadmap", "planning"]
+    }
+  ]
+}
