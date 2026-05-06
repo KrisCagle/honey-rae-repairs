@@ -3,11 +3,10 @@ int secretNumber = 42;
 bool won = false;
 for (int guessCount = 1; guessCount <=4; guessCount++)
 {
+Console.WriteLine($"Guess {guessCount} of 4.");
 Console.Write("Enter Your Guess:");
 string playerGuess = Console.ReadLine();
 int.TryParse(playerGuess, out int guessNumber);
-
-
 if (guessNumber == secretNumber)
 {
     won = true;

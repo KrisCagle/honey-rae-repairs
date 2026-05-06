@@ -25,7 +25,7 @@ Generated from: dev-docs/PRD.md
   **User Stories:**
   - As a player, I want multiple attempts so I have a fair chance to guess the number.
 
-- [ ] **Step 4: Show guess number and exit on correct guess**
+- [x] **Step 4: Show guess number and exit on correct guess**
   Display which guess the player is currently on in the prompt. Exit the loop immediately when the player guesses correctly so they are not prompted again unnecessarily. Introduces the `guessCount` variable and a loop exit condition.
 
   **User Stories:**
