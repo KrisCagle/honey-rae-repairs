@@ -32,7 +32,7 @@ Generated from: dev-docs/PRD.md
   - As a player, I want to see which guess I am on so I can track my progress.
   - As a player, I want the game to stop immediately when I guess correctly.
 
-- [ ] **Step 5: Random secret number and remaining guesses display**
+- [x] **Step 5: Random secret number and remaining guesses display**
   Replace the hardcoded 42 with a randomly generated number between 1 and 100. Show how many guesses remain each turn. Introduces `Random` and the `secretNumber` and `maxGuesses` variables from the data model.
 
   **User Stories:**

@@ -1,9 +1,10 @@
 ﻿Console.WriteLine("Welcome to Guessing Game!");
-int secretNumber = 42;
+int secretNumber = new Random().Next(1, 101);
+int maxGuesses = 4;
 bool won = false;
-for (int guessCount = 1; guessCount <=4; guessCount++)
+for (int guessCount = 1; guessCount <= maxGuesses; guessCount++)
 {
-Console.WriteLine($"Guess {guessCount} of 4.");
+Console.WriteLine($"{maxGuesses - guessCount + 1} guesses remaining.");
 Console.Write("Enter Your Guess:");
 string playerGuess = Console.ReadLine();
 int.TryParse(playerGuess, out int guessNumber);
