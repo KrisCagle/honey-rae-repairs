@@ -7,7 +7,7 @@ Generated from: dev-docs/PRD.md
 
 ## Steps
 
-- [ ] **Step 1: Prompt and echo**
+- [x] **Step 1: Prompt and echo**
   Prompt the player to enter a guess and print it back. This establishes the basic console I/O pattern that every later phase builds on: read input, do something with it, print output.
 
   **User Stories:**

@@ -1,2 +1,8 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿
+
+
+Console.WriteLine("Welcome to Guessing Game!");
+Console.Write("Enter Your Guess:");
+string playerGuess = Console.ReadLine();
+Console.WriteLine($"You guessed {playerGuess}");
+
