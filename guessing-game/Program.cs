@@ -14,6 +14,16 @@ if (guessNumber == secretNumber)
     Console.WriteLine("You Win!");
     break;
 }
+
+else if (guessNumber > secretNumber)
+    {
+        Console.WriteLine("Too High!");
+    }
+
+else if (guessNumber < secretNumber)
+    {
+        Console.WriteLine("Too Low!");
+    }
 }
 
 if (!won)

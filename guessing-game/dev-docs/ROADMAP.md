@@ -39,7 +39,7 @@ Generated from: dev-docs/PRD.md
   - As a player, I want the secret number to be random so every game is different.
   - As a player, I want to see how many guesses I have left so I can plan ahead.
 
-- [ ] **Step 6: High and low feedback**
+- [x] **Step 6: High and low feedback**
   After a wrong guess, tell the player whether their guess was too high or too low. Small addition to the loop but makes the game actually playable.
 
   **User Stories:**
