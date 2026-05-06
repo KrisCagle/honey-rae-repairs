@@ -19,7 +19,7 @@ Generated from: dev-docs/PRD.md
   **User Stories:**
   - As a player, I want to know if my guess was correct so I can find out if I won.
 
-- [ ] **Step 3: Multiple attempts**
+- [x] **Step 3: Multiple attempts**
   Allow up to four attempts before the game ends. Wraps the guess logic in a loop for the first time.
 
   **User Stories:**
