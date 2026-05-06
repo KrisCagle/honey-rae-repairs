@@ -13,7 +13,7 @@ Generated from: dev-docs/PRD.md
   **User Stories:**
   - As a player, I want to enter a number so the game acknowledges my input.
 
-- [ ] **Step 2: Win or lose against a hardcoded number**
+- [x] **Step 2: Win or lose against a hardcoded number**
   Introduce a hardcoded secret number (42). After the player guesses, tell them whether they won or lost. Introduces the first conditional logic in the game.
 
   **User Stories:**
