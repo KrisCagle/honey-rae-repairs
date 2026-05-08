@@ -1,0 +1,15 @@
+C:\Users\Krisc\workspace\cSharp\library-book\obj\Debug\net10.0\library-book.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Krisc\workspace\cSharp\library-book\obj\Debug\net10.0\library-book.AssemblyInfoInputs.cache
+C:\Users\Krisc\workspace\cSharp\library-book\obj\Debug\net10.0\library-book.AssemblyInfo.cs
+C:\Users\Krisc\workspace\cSharp\library-book\obj\Debug\net10.0\library-book.csproj.CoreCompileInputs.cache
+C:\Users\Krisc\workspace\cSharp\library-book\obj\Debug\net10.0\library-book.sourcelink.json
+C:\Users\Krisc\workspace\cSharp\library-book\bin\Debug\net10.0\library-book.exe
+C:\Users\Krisc\workspace\cSharp\library-book\bin\Debug\net10.0\library-book.deps.json
+C:\Users\Krisc\workspace\cSharp\library-book\bin\Debug\net10.0\library-book.runtimeconfig.json
+C:\Users\Krisc\workspace\cSharp\library-book\bin\Debug\net10.0\library-book.dll
+C:\Users\Krisc\workspace\cSharp\library-book\bin\Debug\net10.0\library-book.pdb
+C:\Users\Krisc\workspace\cSharp\library-book\obj\Debug\net10.0\library-book.dll
+C:\Users\Krisc\workspace\cSharp\library-book\obj\Debug\net10.0\refint\library-book.dll
+C:\Users\Krisc\workspace\cSharp\library-book\obj\Debug\net10.0\library-book.pdb
+C:\Users\Krisc\workspace\cSharp\library-book\obj\Debug\net10.0\library-book.genruntimeconfig.cache
+C:\Users\Krisc\workspace\cSharp\library-book\obj\Debug\net10.0\ref\library-book.dll
