@@ -1,6 +1,4 @@
-﻿using System.Collections.Concurrent;
-using System.Data.Common;
-using System.Reflection;
+﻿using System.Transactions;
 
 List <book> books = new List<book>()
 {
@@ -8,7 +6,6 @@ List <book> books = new List<book>()
     {
     Id = 1,
     Name = "Where the Red Fern Grows",
-    DaysCheckedOut = 24,
     GenreId = 1,
     DateAdded = new DateTime (1991,02,21),
     IsCheckedOut = true
@@ -18,7 +15,6 @@ List <book> books = new List<book>()
     {
     Id = 2,
     Name = "Mr. Popper's Penguins",
-    DaysCheckedOut = 36,
     GenreId = 1,
     DateAdded = new DateTime (2001,05,20),
     IsCheckedOut = false 
@@ -28,7 +24,6 @@ List <book> books = new List<book>()
     {
     Id = 3,
     Name = "The guy from Parks and Recs: Ron Swanson",
-    DaysCheckedOut = 14,
     GenreId = 2,
     DateAdded = new DateTime (2012,01,12),
     IsCheckedOut = true
@@ -87,14 +82,14 @@ else if (choice == "3")
     {
         AddBook();
     }
-// else if (choice == "4")
-//     {
-//         DeleteBook();
-//     }
-// else if (choice == "5") 
-//     {
-//         UpdateBook();
-//     }
+else if (choice == "4")
+    {
+        DeleteBook();
+    }
+else if (choice == "5") 
+    {
+        UpdateBook();
+    }
 // else if (choice == "6")
 //     {
 //         CheckoutBook();
@@ -147,3 +142,134 @@ $"{i + 1}.{b.Name} - {(b.IsCheckedOut ? "Available to checkout" : "Currently che
 }
 
 void AddBook()
+{
+    Console.WriteLine("Enter the Book Title: ");
+    string name = Console.ReadLine().Trim();
+
+    Console.WriteLine("Fiction Or Non-Fiction?: ");
+    Console.WriteLine(string.Join("\n", genres.Select((g, i) =>
+        $"{i + 1}. {g.genreName}")));
+
+    genre chosenType = null;
+    while (chosenType == null)
+    {
+        try
+        {
+            int response = int.Parse(Console.ReadLine().Trim());
+            chosenType = genres[response - 1];
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Please only type the number choice.");
+        }
+        catch (ArgumentOutOfRangeException)
+        {
+            Console.WriteLine("Please choose an existing genre only!");
+        }
+    }
+
+    int newId = books.Count > 0 ? books.Max(b => b.Id) + 1 : 1;
+
+    books.Add(new book()
+    {
+        Id = newId,
+        Name = name,
+        GenreId = chosenType.Id,
+        DateAdded = DateTime.Now,
+        IsCheckedOut = false
+    });
+
+    Console.WriteLine($"{name} has been added to the library.");
+}
+
+void DeleteBook()
+{
+    ViewAllBooks();
+
+    book chosenBook = null;
+    while (chosenBook == null)
+    {
+        Console.WriteLine("Enter the Number of the Book You Want to Delete.");
+        try
+        {
+            int response = int.Parse(Console.ReadLine().Trim());
+            chosenBook = books[response - 1];
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Please type only integers!");
+        }
+        catch (ArgumentOutOfRangeException)
+        {
+            Console.WriteLine("Please Choose an existing Book Only!");
+        }
+    }
+    Console.WriteLine($"Are you sure you want to delete {chosenBook.Name}? (y/n)");
+    string confirm = Console.ReadLine().Trim().ToLower();
+    if (confirm == "y")
+    {
+        books.Remove(chosenBook);
+        Console.WriteLine($"{chosenBook.Name} has been removed from inventory.");
+    }
+    else
+    {
+        Console.WriteLine("Delete Canceled...");
+    }
+} // <-- this was missing the whole time
+
+void UpdateBook()
+{
+    ViewAllBooks();
+
+    book chosenBook = null;
+    while (chosenBook == null)
+    {
+        Console.WriteLine("Enter the number of the book you want to update.");
+        try
+        {
+            int response = int.Parse(Console.ReadLine().Trim());
+            chosenBook = books[response - 1];
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Please type only integers!");
+        }
+        catch (ArgumentOutOfRangeException)
+        {
+            Console.WriteLine("Please choose an existing book only!");
+        }
+    }
+
+    Console.WriteLine($"Editing {chosenBook.Name}");
+    Console.WriteLine($"Is This Book Checked Out? (Current: {(chosenBook.IsCheckedOut ? "Checked Out" : "Available")})");
+    Console.WriteLine("1. Available");
+    Console.WriteLine("2. Checked Out");
+
+    bool validAvailability = false;
+    while (!validAvailability)
+    {
+        try
+        {
+            int response = int.Parse(Console.ReadLine().Trim());
+            if (response == 1)
+            {
+                chosenBook.IsCheckedOut = false;
+                validAvailability = true;
+            }
+            else if (response == 2)
+            {
+                chosenBook.IsCheckedOut = true;
+                validAvailability = true;
+            }
+            else
+            {
+                Console.WriteLine("Please Choose 1 or 2.");
+            }
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Please Type Only Integers...");
+        }
+    }
+    Console.WriteLine($"{chosenBook.Name} Has Been Updated.");
+}
