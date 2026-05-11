@@ -1,0 +1,15 @@
+C:\Users\Krisc\workspace\Csharp\guessing-game\obj\Debug\net10.0\guessing-game.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Krisc\workspace\Csharp\guessing-game\obj\Debug\net10.0\guessing-game.AssemblyInfoInputs.cache
+C:\Users\Krisc\workspace\Csharp\guessing-game\obj\Debug\net10.0\guessing-game.AssemblyInfo.cs
+C:\Users\Krisc\workspace\Csharp\guessing-game\obj\Debug\net10.0\guessing-game.csproj.CoreCompileInputs.cache
+C:\Users\Krisc\workspace\Csharp\guessing-game\obj\Debug\net10.0\guessing-game.sourcelink.json
+C:\Users\Krisc\workspace\Csharp\guessing-game\bin\Debug\net10.0\guessing-game.exe
+C:\Users\Krisc\workspace\Csharp\guessing-game\bin\Debug\net10.0\guessing-game.deps.json
+C:\Users\Krisc\workspace\Csharp\guessing-game\bin\Debug\net10.0\guessing-game.runtimeconfig.json
+C:\Users\Krisc\workspace\Csharp\guessing-game\bin\Debug\net10.0\guessing-game.dll
+C:\Users\Krisc\workspace\Csharp\guessing-game\bin\Debug\net10.0\guessing-game.pdb
+C:\Users\Krisc\workspace\Csharp\guessing-game\obj\Debug\net10.0\guessing-game.dll
+C:\Users\Krisc\workspace\Csharp\guessing-game\obj\Debug\net10.0\refint\guessing-game.dll
+C:\Users\Krisc\workspace\Csharp\guessing-game\obj\Debug\net10.0\guessing-game.pdb
+C:\Users\Krisc\workspace\Csharp\guessing-game\obj\Debug\net10.0\guessing-game.genruntimeconfig.cache
+C:\Users\Krisc\workspace\Csharp\guessing-game\obj\Debug\net10.0\ref\guessing-game.dll

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Krisc\\workspace\\Csharp\\guessing-game\\guessing-game.csproj": {}
+    "C:\\Users\\Krisc\\workspace\\csharp\\guessing-game\\guessing-game.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Krisc\\workspace\\Csharp\\guessing-game\\guessing-game.csproj": {
+    "C:\\Users\\Krisc\\workspace\\csharp\\guessing-game\\guessing-game.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Krisc\\workspace\\Csharp\\guessing-game\\guessing-game.csproj",
+        "projectUniqueName": "C:\\Users\\Krisc\\workspace\\csharp\\guessing-game\\guessing-game.csproj",
         "projectName": "guessing-game",
-        "projectPath": "C:\\Users\\Krisc\\workspace\\Csharp\\guessing-game\\guessing-game.csproj",
+        "projectPath": "C:\\Users\\Krisc\\workspace\\csharp\\guessing-game\\guessing-game.csproj",
         "packagesPath": "C:\\Users\\Krisc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Krisc\\workspace\\Csharp\\guessing-game\\obj\\",
+        "outputPath": "C:\\Users\\Krisc\\workspace\\csharp\\guessing-game\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Krisc\\AppData\\Roaming\\NuGet\\NuGet.Config"
