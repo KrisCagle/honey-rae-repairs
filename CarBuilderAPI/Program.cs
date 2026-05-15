@@ -1,4 +1,3 @@
-
 using CarBuilderAPI.Models;
 List<CarBuilderAPI.Models.PaintColor> paintColors = new List<CarBuilderAPI.Models.PaintColor>
 {
@@ -117,19 +116,44 @@ List<CarBuilderAPI.Models.Order> orders = new List<CarBuilderAPI.Models.Order>()
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
-
+builder.Services.AddCors();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.UseCors(options =>
+    {
+        options.AllowAnyOrigin();
+        options.AllowAnyMethod();
+        options.AllowAnyHeader();
+    });
 }
 
-app.UseHttpsRedirection();
+// GET all endpoints
+app.MapGet("/Wheels", () =>
+{
+    return Results.Ok(wheels);
+});
 
+app.MapGet("/Technology", () =>
+{
+    return Results.Ok(Technology);
+});
+
+app.MapGet("/Interior", () =>
+{
+    return Results.Ok(interiors);
+});
+
+app.MapGet("/PaintColor", () =>
+{
+    return Results.Ok(paintColors);
+});
+
+// GET by ID endpoints
 app.MapGet("/Wheels/{id}", (int id) =>
 {
     Wheels wheel = wheels.FirstOrDefault(w => w.Id == id);
@@ -150,7 +174,7 @@ app.MapGet("/Technology/{id}", (int id) =>
     return Results.Ok(technology);
 });
 
-app.MapGet("/Interiors/{id}", (int id) =>
+app.MapGet("/Interior/{id}", (int id) =>
 {
     Interior interior = interiors.FirstOrDefault(i => i.Id == id);
     if (interior == null)
@@ -170,31 +194,87 @@ app.MapGet("/PaintColor/{id}", (int id) =>
     return Results.Ok(paintColor);
 });
 
-app.MapGet("/orders", () =>
+// Orders endpoints
+app.MapGet("/orders", (int? paintId) =>
 {
-    return Results.Ok(orders);
-});
-
-app.MapGet("/orders/{id}", (int id) =>
-{
-    Order order = orders.FirstOrDefault(o => o.Id == id);
-    if (order == null)
+    List<OrderDTO> ordersWithDetails = new List<OrderDTO>();
+    
+    foreach (Order order in orders.Where(o => !o.IsCompleted))
     {
-        return Results.NotFound();
+        OrderDTO orderDTO = new OrderDTO
+        {
+            Id = order.Id,
+            TimeStamp = order.TimeStamp,
+            WheelId = order.WheelId,
+            TechnologyId = order.TechnologyId,
+            PaintId = order.PaintId,
+            InteriorId = order.InteriorId,
+            IsCompleted = order.IsCompleted,
+            Wheel = wheels.FirstOrDefault(w => w.Id == order.WheelId),
+            Technology = Technology.FirstOrDefault(t => t.Id == order.TechnologyId),
+            Paint = paintColors.FirstOrDefault(p => p.Id == order.PaintId),
+            Interior = interiors.FirstOrDefault(i => i.Id == order.InteriorId),
+        };
+        
+        decimal total = 0;
+        if (orderDTO.Wheel != null) total += orderDTO.Wheel.Price;
+        if (orderDTO.Technology != null) total += orderDTO.Technology.Price;
+        if (orderDTO.Paint != null) total += orderDTO.Paint.Price;
+        if (orderDTO.Interior != null) total += orderDTO.Interior.Price;
+        orderDTO.TotalCost = total;
+        
+        ordersWithDetails.Add(orderDTO);
     }
-    return Results.Ok(order);
+    
+    // Filter by paintId if provided
+    if (paintId != null)
+    {
+        ordersWithDetails = ordersWithDetails.Where(o => o.PaintId == paintId).ToList();
+    }
+    
+    return Results.Ok(ordersWithDetails);
 });
-
 app.MapPost("/orders", (Order newOrder) =>
 {
     newOrder.Id = orders.Count > 0 ? orders.Max(o => o.Id) + 1 : 1;
     newOrder.TimeStamp = DateTime.Now;
     orders.Add(newOrder);
-    return Results.Created($"/orders/{newOrder.Id}", newOrder);
+    
+    // Return as DTO with related data
+    OrderDTO orderDTO = new OrderDTO
+    {
+        Id = newOrder.Id,
+        TimeStamp = newOrder.TimeStamp,
+        WheelId = newOrder.WheelId,
+        TechnologyId = newOrder.TechnologyId,
+        PaintId = newOrder.PaintId,
+        InteriorId = newOrder.InteriorId,
+        Wheel = wheels.FirstOrDefault(w => w.Id == newOrder.WheelId),
+        Technology = Technology.FirstOrDefault(t => t.Id == newOrder.TechnologyId),
+        Paint = paintColors.FirstOrDefault(p => p.Id == newOrder.PaintId),
+        Interior = interiors.FirstOrDefault(i => i.Id == newOrder.InteriorId),
+    };
+    
+    // Calculate TotalCost
+    decimal total = 0;
+    if (orderDTO.Wheel != null) total += orderDTO.Wheel.Price;
+    if (orderDTO.Technology != null) total += orderDTO.Technology.Price;
+    if (orderDTO.Paint != null) total += orderDTO.Paint.Price;
+    if (orderDTO.Interior != null) total += orderDTO.Interior.Price;
+    orderDTO.TotalCost = total;
+    
+    return Results.Created($"/orders/{orderDTO.Id}", orderDTO);
+});
+app.MapPost("/orders/{id}/fulfill", (int id) =>
+{
+    Order orderToComplete = orders.FirstOrDefault(o => o.Id == id);
+    if (orderToComplete == null)
+    {
+        return Results.NotFound();
+    }
+    
+    orderToComplete.IsCompleted = true;
+    return Results.Ok(orderToComplete);
 });
 
 app.Run();
-
-
-
-

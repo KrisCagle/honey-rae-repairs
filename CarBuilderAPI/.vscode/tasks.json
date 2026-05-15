@@ -1,0 +1,13 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "dotnet",
+			"task": "build c:\\Users\\Krisc\\workspace\\csharp\\CarBuilderAPI\\CarBuilderAPI.csproj",
+			"file": "c:\\Users\\Krisc\\workspace\\csharp\\CarBuilderAPI\\CarBuilderAPI.csproj",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "dotnet: build c:\\Users\\Krisc\\workspace\\csharp\\CarBuilderAPI\\CarBuilderAPI.csproj"
+		}
+	]
+}

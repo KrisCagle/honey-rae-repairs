@@ -5,7 +5,7 @@
             "name": ".NET Core Launch (web)",
             "type": "dotnet",
             "request": "launch",
-            "projectPath": "${workspaceFolder}/HoneyRaesAPI.csproj"
+            "projectPath": "${workspaceFolder}/CarBuilderAPI.csproj"
         }
     ]
 }

@@ -7,9 +7,13 @@ public class Order
     public int TechnologyId { get; set; }
     public int PaintId { get; set; }
     public int InteriorId { get; set; }
-
-public Wheels? Wheel { get; set; }
+    public bool IsCompleted { get; set; }
+  
+    public Wheels? Wheel { get; set; }
     public Technology? Technology { get; set; }
     public PaintColor? Paint { get; set; }
     public Interior? Interior { get; set; }
+    
+    // Add calculated property
+    public decimal TotalCost { get; set; }
 }
