@@ -1,0 +1,6 @@
+@examineAPI_HostAddress = http://localhost:5152
+
+GET {{examineAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
